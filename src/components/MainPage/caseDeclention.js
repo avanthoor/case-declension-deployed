@@ -55,14 +55,19 @@ const caseDeclension = (word, requiredCase) => {
         case 'ь':
             if (/[жш]/.test(wordArr[penultimateLetter]) && /о/.test(wordArr[thirdFromEndLetter])) {
                 wordType = 14
-            } else {
+            } else if ((/[н]/.test(wordArr[penultimateLetter]))) {
+                wordType = 11
+            }
+            else {
                 wordType = 15
             }
             break
 
         case 'к':
-            if (/о/.test(wordArr[penultimateLetter])) {
+            if (/о/.test(wordArr[penultimateLetter]) && word.length !== 3) {
                 wordType = 16
+            } else {
+                wordType = 20
             }
             break
 
