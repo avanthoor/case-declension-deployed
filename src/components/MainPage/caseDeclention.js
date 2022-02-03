@@ -69,7 +69,7 @@ const caseDeclension = (word, requiredCase) => {
         default:
             if (word === 'ров') {
                 wordType = 17
-            } else if (/[её]/.test(wordArr[penultimateLetter]) && /л/.test(wordArr[thirdFromEndLetter])) {
+            } else if (/[её]/.test(wordArr[penultimateLetter]) && /л/.test(wordArr[thirdFromEndLetter]) && word.length === 3) {
                 wordType = 18
             } else if (/[вжк]/.test(wordArr[lastLetter])) {
                 wordType = 19
@@ -87,29 +87,15 @@ const caseDeclension = (word, requiredCase) => {
                     break
 
                 case 2:
-                    wordArr[lastLetter] = 'и'
-                    break
-
                 case 3:
-                    wordArr[lastLetter] = 'и'
-                    break
-
                 case 4:
-                    wordArr[lastLetter] = 'и'
-                    break
-
                 case 5:
-                    wordArr[lastLetter] = 'и'
-                    break
-
                 case 6:
+                case 15:
                     wordArr[lastLetter] = 'и'
                     break
 
                 case 7:
-                    wordArr[lastLetter] = 'а'
-                    break
-
                 case 8:
                     wordArr[lastLetter] = 'а'
                     break
@@ -120,14 +106,12 @@ const caseDeclension = (word, requiredCase) => {
                     break
 
                 case 10:
-                    wordArr[lastLetter] = 'я'
-                    break
-
                 case 11:
                     wordArr[lastLetter] = 'я'
                     break
 
                 case 12:
+                case 18:
                     wordArr[penultimateLetter] = 'ь'
                     wordArr[lastLetter + 1] = 'а'
                     break
@@ -142,10 +126,6 @@ const caseDeclension = (word, requiredCase) => {
                     wordArr[lastLetter] = 'и'
                     break
 
-                case 15:
-                    wordArr[lastLetter] = 'и'
-                    break
-
                 case 16:
                     wordArr[penultimateLetter] = 'к'
                     wordArr[lastLetter] = 'а'
@@ -156,15 +136,7 @@ const caseDeclension = (word, requiredCase) => {
                     wordArr[lastLetter] = 'а'
                     break
 
-                case 18:
-                    wordArr[penultimateLetter] = 'ь'
-                    wordArr[lastLetter + 1] = 'а'
-                    break
-
                 case 19:
-                    wordArr[lastLetter + 1] = 'а'
-                    break
-
                 case 20:
                     wordArr[lastLetter + 1] = 'а'
                     break
@@ -176,33 +148,19 @@ const caseDeclension = (word, requiredCase) => {
 
             switch (wordType) {
                 case 1:
-                    wordArr[lastLetter] = 'e'
-                    break
-
                 case 2:
-                    wordArr[lastLetter] = 'e'
-                    break
-
-                case 3:
-                    wordArr[lastLetter] = 'и'
-                    break
-
                 case 4:
-                    wordArr[lastLetter] = 'е'
-                    break
-
-                case 5:
-                    wordArr[lastLetter] = 'и'
-                    break
-
                 case 6:
                     wordArr[lastLetter] = 'e'
                     break
 
-                case 7:
-                    wordArr[lastLetter] = 'у'
+                case 3:
+                case 5:
+                case 15:
+                    wordArr[lastLetter] = 'и'
                     break
 
+                case 7:
                 case 8:
                     wordArr[lastLetter] = 'у'
                     break
@@ -213,14 +171,12 @@ const caseDeclension = (word, requiredCase) => {
                     break
 
                 case 10:
-                    wordArr[lastLetter] = 'ю'
-                    break
-
                 case 11:
                     wordArr[lastLetter] = 'ю'
                     break
 
                 case 12:
+                case 18:
                     wordArr[penultimateLetter] = 'ь'
                     wordArr[lastLetter + 1] = 'у'
                     break
@@ -235,10 +191,6 @@ const caseDeclension = (word, requiredCase) => {
                     wordArr[lastLetter] = 'и'
                     break
 
-                case 15:
-                    wordArr[lastLetter] = 'и'
-                    break
-
                 case 16:
                     wordArr[penultimateLetter] = 'к'
                     wordArr[lastLetter] = 'у'
@@ -249,15 +201,7 @@ const caseDeclension = (word, requiredCase) => {
                     wordArr[lastLetter] = 'у'
                     break
 
-                case 18:
-                    wordArr[penultimateLetter] = 'ь'
-                    wordArr[lastLetter + 1] = 'у'
-                    break
-
                 case 19:
-                    wordArr[lastLetter + 1] = 'у'
-                    break
-
                 case 20:
                     wordArr[lastLetter + 1] = 'у'
                     break
@@ -269,25 +213,13 @@ const caseDeclension = (word, requiredCase) => {
 
             switch (wordType) {
                 case 1:
-                    wordArr[lastLetter] = 'у'
-                    break
-
                 case 2:
                     wordArr[lastLetter] = 'у'
                     break
 
                 case 3:
-                    wordArr[lastLetter] = 'ю'
-                    break
-
                 case 4:
-                    wordArr[lastLetter] = 'ю'
-                    break
-
                 case 5:
-                    wordArr[lastLetter] = 'ю'
-                    break
-
                 case 6:
                     wordArr[lastLetter] = 'ю'
                     break
@@ -317,16 +249,14 @@ const caseDeclension = (word, requiredCase) => {
 
             switch (wordType) {
                 case 1:
-                    wordArr[lastLetter] = 'о'
-                    wordArr[lastLetter + 1] = 'й'
-                    break
-
                 case 2:
                     wordArr[lastLetter] = 'о'
                     wordArr[lastLetter + 1] = 'й'
                     break
 
                 case 3:
+                case 5:
+                case 6:
                     wordArr[lastLetter] = 'е'
                     wordArr[lastLetter + 1] = 'й'
                     break
@@ -336,22 +266,13 @@ const caseDeclension = (word, requiredCase) => {
                     wordArr[lastLetter + 1] = 'й'
                     break
 
-                case 5:
-                    wordArr[lastLetter] = 'е'
-                    wordArr[lastLetter + 1] = 'й'
-                    break
-
-                case 6:
-                    wordArr[lastLetter] = 'е'
-                    wordArr[lastLetter + 1] = 'й'
-                    break
-
                 case 7:
                     wordArr[lastLetter] = 'о'
                     wordArr[lastLetter + 1] = 'м'
                     break
 
                 case 8:
+                case 11:
                     wordArr[lastLetter] = 'е'
                     wordArr[lastLetter + 1] = 'м'
                     break
@@ -362,11 +283,6 @@ const caseDeclension = (word, requiredCase) => {
                     break
 
                 case 10:
-                    wordArr[lastLetter + 1] = 'м'
-                    break
-
-                case 11:
-                    wordArr[lastLetter] = 'е'
                     wordArr[lastLetter + 1] = 'м'
                     break
 
@@ -383,9 +299,6 @@ const caseDeclension = (word, requiredCase) => {
                     break
 
                 case 14:
-                    wordArr[lastLetter + 1] = 'ю'
-                    break
-
                 case 15:
                     wordArr[lastLetter + 1] = 'ю'
                     break
@@ -409,10 +322,6 @@ const caseDeclension = (word, requiredCase) => {
                     break
 
                 case 19:
-                    wordArr[lastLetter + 1] = 'о'
-                    wordArr[lastLetter + 2] = 'м'
-                    break
-
                 case 20:
                     wordArr[lastLetter + 1] = 'о'
                     wordArr[lastLetter + 2] = 'м'
@@ -425,46 +334,27 @@ const caseDeclension = (word, requiredCase) => {
 
             switch (wordType) {
                 case 1:
-                    wordArr[lastLetter] = 'е'
-                    break
-
                 case 2:
+                case 4:
+                case 6:
+                case 7:
+                case 8:
+                case 11:
                     wordArr[lastLetter] = 'е'
                     break
 
                 case 3:
-                    wordArr[lastLetter] = 'и'
-                    break
-
-                case 4:
-                    wordArr[lastLetter] = 'е'
-                    break
-
                 case 5:
+                case 15:
                     wordArr[lastLetter] = 'и'
-                    break
-
-                case 6:
-                    wordArr[lastLetter] = 'е'
-                    break
-
-                case 7:
-                    wordArr[lastLetter] = 'е'
-                    break
-
-                case 8:
-                    wordArr[lastLetter] = 'е'
                     break
 
                 case 9:
                     wordArr[lastLetter] = 'м'
                     break
 
-                case 11:
-                    wordArr[lastLetter] = 'е'
-                    break
-
                 case 12:
+                case 18:
                     wordArr[penultimateLetter] = 'ь'
                     wordArr[lastLetter + 1] = 'е'
                     break
@@ -479,10 +369,6 @@ const caseDeclension = (word, requiredCase) => {
                     wordArr[lastLetter] = 'и'
                     break
 
-                case 15:
-                    wordArr[lastLetter] = 'и'
-                    break
-
                 case 16:
                     wordArr[penultimateLetter] = 'к'
                     wordArr[lastLetter] = 'е'
@@ -493,15 +379,7 @@ const caseDeclension = (word, requiredCase) => {
                     wordArr[lastLetter] = 'е'
                     break
 
-                case 18:
-                    wordArr[penultimateLetter] = 'ь'
-                    wordArr[lastLetter + 1] = 'е'
-                    break
-
                 case 19:
-                    wordArr[lastLetter + 1] = 'е'
-                    break
-
                 case 20:
                     wordArr[lastLetter + 1] = 'е'
                     break
@@ -510,8 +388,15 @@ const caseDeclension = (word, requiredCase) => {
             break
     }
 
-    // return wordType
-    return wordArr.join('')
+    if (requiredCase === 'P') {
+        if (/[бвгджзклмнпрстфхцчшщ]/.test(wordArr[0])) {
+            wordArr.unshift('о ')
+        } else {
+            wordArr.unshift('об ')
+        }
+    }
+
+    return wordArr ? wordArr.join('') : ''
 }
 
 export default caseDeclension
