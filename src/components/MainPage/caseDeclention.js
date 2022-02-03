@@ -8,65 +8,509 @@ const caseDeclension = (word, requiredCase) => {
     switch (wordArr[lastLetter]) {
         case 'а':
             if (/[бвдзлмнпрстфц]/.test(wordArr[penultimateLetter])) {
-                console.log('тип 1')
+                wordType = 1
             } else {
-                console.log('тип 2')
+                wordType = 2
             }
             break
 
         case 'я':
             if (/и/.test(wordArr[penultimateLetter])) {
-                console.log('тип 3')
+                wordType = 3
             } else if (/ь/.test(wordArr[penultimateLetter])) {
-                console.log('тип 4')
+                wordType = 4
             } else if (/аеиоуыэ/.test(wordArr[penultimateLetter])) {
-                console.log('тип 5')
+                wordType = 5
             } else {
-                console.log('тип 6')
+                wordType = 6
             }
             break
 
         case 'о':
-            console.log('тип 7')
+            wordType = 7
             break
 
         case 'е':
             if (/щ/.test(wordArr[penultimateLetter])) {
-                console.log('тип 8')
+                wordType = 8
+            } else if (/о/.test(wordArr[penultimateLetter])) {
+                wordType = 9
             } else {
-                console.log('тип 9')
+                wordType = 10
             }
             break
 
         case 'й':
-            console.log('тип 10')
+            wordType = 11
             break
 
         case 'ц':
             if (/л/.test(wordArr[thirdFromEndLetter])) {
-                console.log('тип 11')
+                wordType = 12
             } else {
-                console.log('тип 12')
+                wordType = 13
             }
             break
 
         case 'ь':
-            if (/ж/.test(wordArr[penultimateLetter])) {
-                console.log('тип 13')
+            if (/[жш]/.test(wordArr[penultimateLetter]) && /о/.test(wordArr[thirdFromEndLetter])) {
+                wordType = 14
             } else {
-                console.log('тип 14')
+                wordType = 15
+            }
+            break
+
+        case 'к':
+            if (/о/.test(wordArr[penultimateLetter])) {
+                wordType = 16
             }
             break
 
         default:
-            if (/[вжк]/.test(wordArr[lastLetter])) {
-                console.log('тип 15')
+            if (word === 'ров') {
+                wordType = 17
+            } else if (/[её]/.test(wordArr[penultimateLetter]) && /л/.test(wordArr[thirdFromEndLetter])) {
+                wordType = 18
+            } else if (/[вжк]/.test(wordArr[lastLetter])) {
+                wordType = 19
             } else {
-                console.log('тип 16')
+                wordType = 20
             }
     }
 
+    switch (requiredCase) {
+        case 'R':
 
+            switch (wordType) {
+                case 1:
+                    wordArr[lastLetter] = 'ы'
+                    break
+
+                case 2:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 3:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 4:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 5:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 6:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 7:
+                    wordArr[lastLetter] = 'а'
+                    break
+
+                case 8:
+                    wordArr[lastLetter] = 'а'
+                    break
+
+                case 9:
+                    wordArr[lastLetter] = 'г'
+                    wordArr[lastLetter + 1] = 'о'
+                    break
+
+                case 10:
+                    wordArr[lastLetter] = 'я'
+                    break
+
+                case 11:
+                    wordArr[lastLetter] = 'я'
+                    break
+
+                case 12:
+                    wordArr[penultimateLetter] = 'ь'
+                    wordArr[lastLetter + 1] = 'а'
+                    break
+
+                case 13:
+                    wordArr[penultimateLetter] = 'ц'
+                    wordArr[lastLetter] = 'а'
+                    break
+
+                case 14:
+                    delete wordArr[thirdFromEndLetter]
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 15:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 16:
+                    wordArr[penultimateLetter] = 'к'
+                    wordArr[lastLetter] = 'а'
+                    break
+
+                case 17:
+                    wordArr[penultimateLetter] = 'в'
+                    wordArr[lastLetter] = 'а'
+                    break
+
+                case 18:
+                    wordArr[penultimateLetter] = 'ь'
+                    wordArr[lastLetter + 1] = 'а'
+                    break
+
+                case 19:
+                    wordArr[lastLetter + 1] = 'а'
+                    break
+
+                case 20:
+                    wordArr[lastLetter + 1] = 'а'
+                    break
+            }
+
+            break
+
+        case "D":
+
+            switch (wordType) {
+                case 1:
+                    wordArr[lastLetter] = 'e'
+                    break
+
+                case 2:
+                    wordArr[lastLetter] = 'e'
+                    break
+
+                case 3:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 4:
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 5:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 6:
+                    wordArr[lastLetter] = 'e'
+                    break
+
+                case 7:
+                    wordArr[lastLetter] = 'у'
+                    break
+
+                case 8:
+                    wordArr[lastLetter] = 'у'
+                    break
+
+                case 9:
+                    wordArr[lastLetter] = 'м'
+                    wordArr[lastLetter + 1] = 'у'
+                    break
+
+                case 10:
+                    wordArr[lastLetter] = 'ю'
+                    break
+
+                case 11:
+                    wordArr[lastLetter] = 'ю'
+                    break
+
+                case 12:
+                    wordArr[penultimateLetter] = 'ь'
+                    wordArr[lastLetter + 1] = 'у'
+                    break
+
+                case 13:
+                    wordArr[penultimateLetter] = 'ц'
+                    wordArr[lastLetter] = 'у'
+                    break
+
+                case 14:
+                    delete wordArr[thirdFromEndLetter]
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 15:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 16:
+                    wordArr[penultimateLetter] = 'к'
+                    wordArr[lastLetter] = 'у'
+                    break
+
+                case 17:
+                    wordArr[penultimateLetter] = 'в'
+                    wordArr[lastLetter] = 'у'
+                    break
+
+                case 18:
+                    wordArr[penultimateLetter] = 'ь'
+                    wordArr[lastLetter + 1] = 'у'
+                    break
+
+                case 19:
+                    wordArr[lastLetter + 1] = 'у'
+                    break
+
+                case 20:
+                    wordArr[lastLetter + 1] = 'у'
+                    break
+            }
+
+            break
+
+        case 'V':
+
+            switch (wordType) {
+                case 1:
+                    wordArr[lastLetter] = 'у'
+                    break
+
+                case 2:
+                    wordArr[lastLetter] = 'у'
+                    break
+
+                case 3:
+                    wordArr[lastLetter] = 'ю'
+                    break
+
+                case 4:
+                    wordArr[lastLetter] = 'ю'
+                    break
+
+                case 5:
+                    wordArr[lastLetter] = 'ю'
+                    break
+
+                case 6:
+                    wordArr[lastLetter] = 'ю'
+                    break
+
+                case 11:
+                    wordArr[lastLetter] = 'я'
+                    break
+
+                case 13:
+                    wordArr[penultimateLetter] = 'ц'
+                    wordArr[lastLetter] = 'а'
+                    break
+
+                case 18:
+                    wordArr[penultimateLetter] = 'ь'
+                    wordArr[lastLetter + 1] = 'а'
+                    break
+
+                case 19:
+                    wordArr[lastLetter + 1] = 'а'
+                    break
+            }
+
+            break
+
+        case 'T':
+
+            switch (wordType) {
+                case 1:
+                    wordArr[lastLetter] = 'о'
+                    wordArr[lastLetter + 1] = 'й'
+                    break
+
+                case 2:
+                    wordArr[lastLetter] = 'о'
+                    wordArr[lastLetter + 1] = 'й'
+                    break
+
+                case 3:
+                    wordArr[lastLetter] = 'е'
+                    wordArr[lastLetter + 1] = 'й'
+                    break
+
+                case 4:
+                    wordArr[lastLetter] = 'ё'
+                    wordArr[lastLetter + 1] = 'й'
+                    break
+
+                case 5:
+                    wordArr[lastLetter] = 'е'
+                    wordArr[lastLetter + 1] = 'й'
+                    break
+
+                case 6:
+                    wordArr[lastLetter] = 'е'
+                    wordArr[lastLetter + 1] = 'й'
+                    break
+
+                case 7:
+                    wordArr[lastLetter] = 'о'
+                    wordArr[lastLetter + 1] = 'м'
+                    break
+
+                case 8:
+                    wordArr[lastLetter] = 'е'
+                    wordArr[lastLetter + 1] = 'м'
+                    break
+
+                case 9:
+                    wordArr[penultimateLetter] = 'ы'
+                    wordArr[lastLetter] = 'м'
+                    break
+
+                case 10:
+                    wordArr[lastLetter + 1] = 'м'
+                    break
+
+                case 11:
+                    wordArr[lastLetter] = 'е'
+                    wordArr[lastLetter + 1] = 'м'
+                    break
+
+                case 12:
+                    wordArr[penultimateLetter] = 'ь'
+                    wordArr[lastLetter + 1] = 'е'
+                    wordArr[lastLetter + 2] = 'м'
+                    break
+
+                case 13:
+                    wordArr[penultimateLetter] = 'ц'
+                    wordArr[lastLetter] = 'о'
+                    wordArr[lastLetter + 1] = 'м'
+                    break
+
+                case 14:
+                    wordArr[lastLetter + 1] = 'ю'
+                    break
+
+                case 15:
+                    wordArr[lastLetter + 1] = 'ю'
+                    break
+
+                case 16:
+                    wordArr[penultimateLetter] = 'к'
+                    wordArr[lastLetter] = 'о'
+                    wordArr[lastLetter + 1] = 'м'
+                    break
+
+                case 17:
+                    wordArr[penultimateLetter] = 'в'
+                    wordArr[lastLetter] = 'о'
+                    wordArr[lastLetter + 1] = 'м'
+                    break
+
+                case 18:
+                    wordArr[penultimateLetter] = 'ь'
+                    wordArr[lastLetter + 1] = 'о'
+                    wordArr[lastLetter + 2] = 'м'
+                    break
+
+                case 19:
+                    wordArr[lastLetter + 1] = 'о'
+                    wordArr[lastLetter + 2] = 'м'
+                    break
+
+                case 20:
+                    wordArr[lastLetter + 1] = 'о'
+                    wordArr[lastLetter + 2] = 'м'
+                    break
+            }
+
+            break
+
+        case 'P':
+
+            switch (wordType) {
+                case 1:
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 2:
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 3:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 4:
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 5:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 6:
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 7:
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 8:
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 9:
+                    wordArr[lastLetter] = 'м'
+                    break
+
+                case 11:
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 12:
+                    wordArr[penultimateLetter] = 'ь'
+                    wordArr[lastLetter + 1] = 'е'
+                    break
+
+                case 13:
+                    wordArr[penultimateLetter] = 'ц'
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 14:
+                    delete wordArr[thirdFromEndLetter]
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 15:
+                    wordArr[lastLetter] = 'и'
+                    break
+
+                case 16:
+                    wordArr[penultimateLetter] = 'к'
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 17:
+                    wordArr[penultimateLetter] = 'в'
+                    wordArr[lastLetter] = 'е'
+                    break
+
+                case 18:
+                    wordArr[penultimateLetter] = 'ь'
+                    wordArr[lastLetter + 1] = 'е'
+                    break
+
+                case 19:
+                    wordArr[lastLetter + 1] = 'е'
+                    break
+
+                case 20:
+                    wordArr[lastLetter + 1] = 'е'
+                    break
+            }
+
+            break
+    }
+
+    // return wordType
     return wordArr.join('')
 }
 

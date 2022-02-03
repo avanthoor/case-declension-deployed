@@ -16,7 +16,7 @@ function MainPage(props) {
         }
     }
 
-    console.log(caseDeclention('роскошь', 'Родительный'));
+    console.log(caseDeclention('навоз', 'P'));
 
 
     return (
