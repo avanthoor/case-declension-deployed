@@ -1,6 +1,6 @@
 {
-  "name": "case-declention",
   "homepage": "https://avanthoor.github.io/",
+  "name": "case-declention",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
